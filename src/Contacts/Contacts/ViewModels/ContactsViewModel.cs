@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using Contacts.Model;
 using Contacts.Proxy;
+using Xamarin.Forms;
 
 namespace Contacts.ViewModels
 {
@@ -47,6 +48,18 @@ namespace Contacts.ViewModels
                 IsBusy = false;
             }
         }
+
+        private Command<Contact> _deleteContactCommand;
+        public Command<Contact> DeleteContactCommand
+        {
+            get
+            {
+                return _deleteContactCommand ?? (_deleteContactCommand = new Command<Contact>(contact =>
+                {
+                    Contacts.Remove(contact);
+                }));
+            }
+        } 
 
         public event PropertyChangedEventHandler PropertyChanged;
 

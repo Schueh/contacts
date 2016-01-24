@@ -35,7 +35,7 @@ namespace Contacts.Proxy
         {
             using (var client = new HttpClient())
             {
-                using (HttpResponseMessage response = await client.GetAsync("https://randomuser.me/api/?results=30"))
+                using (HttpResponseMessage response = await client.GetAsync("https://randomuser.me/api/?results=10"))
                 {
                     using (HttpContent content = response.Content)
                     {

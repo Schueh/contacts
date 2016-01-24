@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Contacts.ViewModels;assembly=Contacts"
-             x:Class="Contacts.Views.ContactsPage">
+             x:Class="Contacts.Views.ContactsPage"
+             Title="Contacts">
   
     <ContentPage.BindingContext>
       <viewModels:ContactsViewModel />
@@ -16,7 +17,14 @@
                   ItemsSource="{Binding Contacts}">
           <ListView.ItemTemplate>
             <DataTemplate>
-              <ImageCell Text="{Binding FullName}" ImageSource="{Binding Picture}"/>
+              <ImageCell Text="{Binding FullName}" ImageSource="{Binding Picture}">
+                <ImageCell.ContextActions>
+                  <MenuItem IsDestructive="True"
+                            Text="Remove"
+                            Command="{Binding Path=BindingContext.DeleteContactCommand, Source={x:Reference ContactList}}"
+                            CommandParameter="{Binding}" />
+                </ImageCell.ContextActions>
+              </ImageCell>
             </DataTemplate>
           </ListView.ItemTemplate>
         </ListView>
