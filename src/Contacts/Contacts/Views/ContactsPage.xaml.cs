@@ -7,6 +7,12 @@ namespace Contacts.Views
         public ContactsPage()
         {
             InitializeComponent();
+
+            ContactList.ItemSelected += async (sender, args) =>
+            {
+                var contactDetailPage = new ContactDetailPage {BindingContext = args.SelectedItem};
+                await Navigation.PushAsync(contactDetailPage, true);
+            };
         }
     }
 }

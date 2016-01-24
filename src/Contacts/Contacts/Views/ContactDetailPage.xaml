@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Contacts.Views.ContactDetailPage">
+  <ScrollView>
+    <StackLayout Padding="25" Spacing="10">
+      <Image Source="{Binding Picture}"/>
+      <Label Text="{Binding FullName}"/>
+      <Label Text="{Binding Address.Street}"/>
+      <Label Text="{Binding Address.Zip}"/>
+      <Label Text="{Binding Address.City}"/>
+      <Label Text="{Binding Phone}"/>
+      <Label Text="{Binding Email}"/>
+    </StackLayout>
+  </ScrollView>
+</ContentPage>
