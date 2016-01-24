@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Contacts.ViewModels;assembly=Contacts"
+             x:Class="Contacts.Views.ContactsPage">
+  
+    <ContentPage.BindingContext>
+      <viewModels:ContactsViewModel />
+    </ContentPage.BindingContext>
+  
+    <ContentPage.Content>
+      <StackLayout>
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+        
+        <ListView x:Name="ContactList"
+                  ItemsSource="{Binding Contacts}">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ImageCell Text="{Binding FullName}" ImageSource="{Binding Picture}"/>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      
+    </StackLayout>
+  </ContentPage.Content>
+
+</ContentPage>

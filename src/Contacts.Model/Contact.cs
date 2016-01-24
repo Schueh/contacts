@@ -1,4 +1,4 @@
-﻿namespace Contacts.Model
+namespace Contacts.Model
 {
     public class Contact
     {
@@ -14,9 +14,6 @@
 
         public string Picture { get; set; }
 
-        public override string ToString()
-        {
-            return string.Format("{0} {1}", FirstName, LastName);
-        }
+        public string FullName => $"{FirstName} {LastName}";
     }
 }

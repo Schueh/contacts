@@ -1,4 +1,4 @@
-﻿namespace Contacts.Model
+namespace Contacts.Model
 {
     public class Address
     {
